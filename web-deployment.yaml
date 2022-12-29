@@ -5,6 +5,12 @@ kind: Deployment
 metadata:
   name: web-deployment
 spec:
+  minReadySeconds: 5
+  strategy:
+    type: RollingUpdate
+  rollingUpdate:
+    maxSurge: 1
+    maxUnavailable: 1
   replicas: 3
   selector:
     matchLabels:
